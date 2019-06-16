@@ -1,5 +1,5 @@
 # PointOfSales-Java-MySQL
-Point Of Sales Application using Java NetBeans Dan MySQL Database
+Point Of Sales Application using Java NetBeans and MySQL Database
 
 Assalamuallaikum!
 
