@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e66027db-a8c9-4d0d-bafa-496b3c8dfac0">
+	<parameter name="tgl1" class="java.util.Date"/>
+	<parameter name="tgl2" class="java.util.Date"/>
+	<queryString language="SQL">
+		<![CDATA[select 
+         query_pemasokan.`kd_pasok` AS query_pemasokan_kd_pasok,
+         query_pemasokan.`kd_barang` AS query_pemasokan_kd_barang,
+         query_pemasokan.`nama_barang` AS query_pemasokan_nama_barang,
+         query_pemasokan.`jumlah` AS query_pemasokan_jumlah,
+         query_pemasokan.`tgl_masuk` AS query_pemasokan_tgl_masuk,
+         query_pemasokan.`pemasok` AS query_pemasokan_pemasok,
+         query_pemasokan.`stok` AS query_pemasokan_stok
+         
+      FROM
+         
+         `query_pemasokan` query_pemasokan
+         
+      WHERE
+          
+          tgl_masuk BETWEEN $P{tgl1} AND $P{tgl2}
+]]>
+	</queryString>
+        <field name="query_pemasokan_kd_pasok" class="java.lang.String"/>
+	<field name="query_pemasokan_kd_barang" class="java.lang.String"/>
+	<field name="query_pemasokan_nama_barang" class="java.lang.String"/>
+	<field name="query_pemasokan_jumlah" class="java.lang.Integer"/>
+	<field name="query_pemasokan_tgl_masuk" class="java.lang.String"/>
+	<field name="query_pemasokan_pemasok" class="java.lang.String"/>
+	<field name="query_pemasokan_stok" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="158" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="f4d20c90-141b-4d7c-bc01-083242fc8c87" style="Title" x="195" y="10" width="384" height="62"/>
+				<textElement verticalAlignment="Middle">
+					<font size="37" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Laporan Pasok Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7dbd23f4-1854-46fd-85f3-81388320cf17" x="217" y="101" width="32" height="32"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f4d20c90-141b-4d7c-bc01-083242fc8c87" style="Title" x="10" y="108" width="82" height="22"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Periode : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="56409b28-01cc-4e69-b878-f0d90e8dcaf7" x="106" y="108" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{tgl1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dcd8f1dd-706b-4637-83c9-2ceb31f0f445" x="273" y="108" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{tgl2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0f9534e6-1934-4591-bea4-42547d19a591" style="Column header" x="352" y="10" width="114" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="22b1203b-81de-41db-97fa-9416d2ec0ba2" style="Column header" x="694" y="10" width="114" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[stok]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e1788898-83ba-45f4-bb74-a5a54ab4ac1a" style="Column header" x="580" y="10" width="114" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[pemasok]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="384fd0c1-7611-4bdc-84e5-3a52d00f65b7" style="Column header" x="10" y="10" width="114" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[kd_pasok]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d2db5ac4-cce3-4fdc-9c08-ef668a11fd8b" style="Column header" x="466" y="10" width="114" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[tgl_masuk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3b008bf7-6f31-4328-a04e-92ddb2904fb9" style="Column header" x="124" y="10" width="114" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[kd_barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0707c7f2-269b-4de1-bd2e-11ae4e29395f" style="Column header" x="238" y="10" width="114" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[nama_barang]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c493a82f-0db8-4a23-9c4e-9e91c34b1920" style="Detail" x="466" y="10" width="114" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="d5fb4d7b-e42e-459b-b57f-89571f20d7da" style="Detail" x="10" y="10" width="114" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="3394133a-5cbe-42e2-8c73-f35dcf8a6858" style="Detail" x="580" y="10" width="114" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="45c3ccb2-54f6-462c-a9f7-8baf0a3ecb4e" style="Detail" x="238" y="10" width="114" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="0effbeab-2376-4769-bfbe-0aac3c1d3e02" style="Detail" x="352" y="10" width="114" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a477fd88-5c21-4533-a66b-1239a0e5ea97" style="Detail" x="694" y="10" width="114" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5bf13b4f-4a39-4ca2-bf23-a5ac5b5d0ba6" style="Detail" x="124" y="10" width="114" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
